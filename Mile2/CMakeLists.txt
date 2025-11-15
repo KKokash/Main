@@ -14,4 +14,8 @@ add_executable(Mile2
         startcodeplab2/milestone2/logger.h
         startcodeplab2/milestone2/main.c
         startcodeplab2/milestone2/sensor_db.h
-        startcodeplab2/ex1/sensor_db.c)
+        startcodeplab2/ex1/sensor_db.c
+        startcodeplab2/ex2/main.c
+        startcodeplab2/milestone2/sensor_db.c
+        startcodeplab2/milestone2/logger.c
+        startcodeplab2/milestone2/sensor_db.c)
