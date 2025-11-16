@@ -7,9 +7,14 @@
 #include <time.h>
 #include  "logger.h"
 
+static int logger_created = 0;
 FILE * open_db( char *filename, bool append)
 {
-    create_log_process();
+    if (! logger_created)
+    {
+        logger_created = 1;
+        create_log_process();
+    }
     FILE *f = NULL;
 
     if (append)
@@ -18,17 +23,17 @@ FILE * open_db( char *filename, bool append)
         f = fopen(filename, "w");  // overwrite mode
 
     if (f == NULL) {
-        write_to_log_process("Failed to open file.\n");
+        write_to_log_process("Failed to open file.");
         exit(EXIT_FAILURE);
     }
-    write_to_log_process("Data file opened.\n");
+    write_to_log_process("Data file opened.");
     return f;
 }
 
 int insert_sensor(FILE *f, sensor_id_t id, sensor_value_t value, sensor_ts_t ts)
 {
     if (f == NULL) {
-        write_to_log_process("Error: file not open.\n");
+        write_to_log_process("Error: file not open.");
         return 0;
     }
 
@@ -46,6 +51,7 @@ int close_db(FILE * f)
     {
         fclose(f);
         write_to_log_process("Data file closed.");
+        end_log_process();
         return 1;
     }
     return 0;
