@@ -1,0 +1,8 @@
+//
+// Created by karam on 12/14/25.
+//
+
+#ifndef STUDENTSOURCE2025_SENSOR_DB_H
+#define STUDENTSOURCE2025_SENSOR_DB_H
+
+#endif //STUDENTSOURCE2025_SENSOR_DB_H
